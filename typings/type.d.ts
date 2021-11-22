@@ -1,9 +1,3 @@
-declare interface HttpArgument {
-    params?: Record<string, any>;
-    data?: Record<string, unknown>;
-    headers?: Record<string, string | string[] | undefined>
-}
-
 declare interface InstanceException {
     message: string;
     source: Array<string>;
@@ -27,16 +21,6 @@ declare interface Device {
     model: DeviceModel
     OSVersion: string
     softVersion: string
-}
-
-declare namespace Express {
-    interface Response {
-        success: (result?: unknown) => void
-    }
-
-    interface Request {
-
-    }
 }
 
 type AnyKeys<T> = { [P in keyof T]?: T[P] | any };

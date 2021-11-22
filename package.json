@@ -9,10 +9,7 @@
     "build": "./node_modules/.bin/tsc",
     "upgrade": "./node_modules/.bin/npm-check -u",
     "doc": "./node_modules/.bin/apidoc -i ./src -o ./public/doc",
-    "pkg": "./node_modules/.bin/pkg --out-path ./build .",
     "eslint": "./node_modules/.bin/eslint ./ --fix",
-    "test": "./node_modules/.bin/cross-env TS_NODE_PROJECT='test/tsconfig.test.json' ./node_modules/.bin/mocha test/index.ts --timeout 10000",
-    "cover-test": "./node_modules/.bin/nyc npm run test",
     "husky-init": "husky install",
     "husky-hook": "./node_modules/.bin/husky add .husky/pro-commit \"npm run eslint\" && husky add .husky/pro-push \"npm run build\""
   },
@@ -31,41 +28,22 @@
   "homepage": "https://github.com/HandsomeTea/websocket-server#readme",
   "dependencies": {
     "@godaddy/terminus": "^4.9.0",
-    "agentkeepalive": "^4.1.4",
-    "axios": "^0.24.0",
-    "ioredis": "^4.28.0",
-    "jsonwebtoken": "^8.5.1",
     "log4js": "^6.3.0",
     "module-alias": "^2.2.2",
     "mongoose": "^6.0.13",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.9.0",
     "ws": "^8.2.3"
   },
   "devDependencies": {
-    "@types/mocha": "^9.0.0",
     "@types/module-alias": "^2.0.1",
     "@types/node": "^14.6.0",
     "@types/ws": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "apidoc": "^0.50.1",
-    "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
     "husky": "^7.0.4",
-    "mocha": "^9.1.3",
     "npm-check": "^5.9.2",
-    "nyc": "^15.1.0",
-    "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
-    "tsconfig-paths": "^3.11.0",
     "typescript": "^4.5.2"
-  },
-  "mocha": {
-    "require": [
-      "ts-node/register",
-      "tsconfig-paths/register"
-    ],
-    "ui": "bdd"
   }
 }

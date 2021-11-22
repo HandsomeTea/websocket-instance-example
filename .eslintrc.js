@@ -16,13 +16,11 @@ module.exports = {
     plugins: ['@typescript-eslint'],
     globals: {
         NodeJS: true,
-        isServerRunning: true,
         Exception: true,
         InstanceException: true,
         WebsocketServer: true,
         WebsocketUserIdMap: true,
         SocketMethod: true,
-        HttpArgument: true,
         SocketAttempt: true,
         InstanceModel: true,
         SessionModel: true,
