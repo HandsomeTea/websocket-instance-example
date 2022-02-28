@@ -37,8 +37,8 @@ module.exports = {
                 allowDestructuring: true, // Allow `const { props, state } = this`; false by default
                 allowedNames: ['self'] // Allow `const self = this`; `[]` by default
             }
-        ]
-        ,
+        ],
+        '@typescript-eslint/no-redeclare': 2, //禁止重复声明变量
         'indent': [2, 4, { SwitchCase: 1 }], //缩进风格
         'linebreak-style': [0, 'error', 'windows', 'unix'], //换行风格
         'quotes': [2, 'single'], // 引号
@@ -57,7 +57,6 @@ module.exports = {
         'consistent-this': [2, 'self'], //this别名
         'no-multi-spaces': 1, //不能用多余的空格
         'no-multi-str': 2, //字符串不能用\换行
-        'no-redeclare': 2, //禁止重复声明变量
         'no-undef': 2, //不能有未定义的变量
         'no-sparse-arrays': 2, //禁止稀疏数组， [1,,2]
         'no-unreachable': 2, //不能有无法执行的代码
