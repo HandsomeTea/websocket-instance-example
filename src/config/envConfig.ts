@@ -6,6 +6,7 @@ interface EnvConfigType {
     PORT: number
     MESSAGE_ENCRYPTED: boolean
     SERVER_NAME: string
+    LOG_LEVEL: 'all' | 'mark' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'off'
     TRACE_LOG_LEVEL: 'all' | 'mark' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'off'
     DEV_LOG_LEVEL: 'all' | 'mark' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'off'
     AUDIT_LOG_LEVEL: 'all' | 'mark' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'off'
@@ -14,7 +15,6 @@ interface EnvConfigType {
     JWT_APP_SECERT: string
     REDIS_URL: string
     MONGO_URL: string
-    MYSQL_URL: string
     /** 单位：次 */
     SOCKET_LIMIT_MAX?: number
     /** 单位：秒 */
@@ -28,6 +28,7 @@ const developConfig: EnvConfigType = {
     PORT: 3001,
     MESSAGE_ENCRYPTED: false,
     SERVER_NAME: 'personal server',
+    LOG_LEVEL: 'all',
     TRACE_LOG_LEVEL: 'all',
     DEV_LOG_LEVEL: 'all',
     AUDIT_LOG_LEVEL: 'all',
@@ -35,8 +36,7 @@ const developConfig: EnvConfigType = {
     JWT_APP_ID: 'jwtAppId',
     JWT_APP_SECERT: 'jwtSecret',
     REDIS_URL: 'redis://127.0.0.1:6379',
-    MONGO_URL: 'mongodb://localhost:27017/test',
-    MYSQL_URL: 'mysql://root:root@localhost:3306/test'
+    MONGO_URL: 'mongodb://localhost:27017/test'
 };
 
 export default (env: keyof EnvConfigType) => {

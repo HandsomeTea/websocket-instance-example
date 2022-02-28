@@ -5,6 +5,7 @@ declare global {
     namespace NodeJS {
         interface Global {
             WebsocketUserIdMap: Record<string, Set<MyWebSocket>>;
+            WebsocketSNMap: Record<string, MyWebSocket>;
             WebsocketServer?: WebSocketServer;
             isServerRunning: boolean;
             /** socket请求限流记录 */

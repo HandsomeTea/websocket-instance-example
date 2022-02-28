@@ -19,6 +19,7 @@ declare interface SocketAttempt {
     form?: SocketLoginForm
     type?: SocketLoginType
     SN?: string
+    userTenantId?: string
     stampedLoginToken?: {
         token: string
         when: Date

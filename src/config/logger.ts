@@ -55,17 +55,17 @@ export const updateOrCreateLogInstance = (): void => {
             },
             developLog: {
                 appenders: ['_develop'],
-                level: getENV('DEV_LOG_LEVEL') || 'OFF',
+                level: getENV('LOG_LEVEL') || getENV('DEV_LOG_LEVEL') || 'OFF',
                 enableCallStack: true
             },
             traceLog: {
                 appenders: ['_trace'],
-                level: getENV('TRACE_LOG_LEVEL') || 'ALL',
+                level: getENV('LOG_LEVEL') || getENV('TRACE_LOG_LEVEL') || 'ALL',
                 enableCallStack: true
             },
             auditLog: {
                 appenders: ['_audit'],
-                level: getENV('AUDIT_LOG_LEVEL') || 'ALL',
+                level: getENV('LOG_LEVEL') || getENV('AUDIT_LOG_LEVEL') || 'ALL',
                 enableCallStack: true
             },
             systemLog: {
