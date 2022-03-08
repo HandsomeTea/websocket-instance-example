@@ -25,7 +25,6 @@ global.WebsocketServer.connection((socket, request) => {
             ip: request.connection.remoteAddress || ''
         }
     };
-    socket.middlewareMap = [];
     socketCore(socket);
     socketMethods(socket);
     log().debug(`${socket.attempt.connection.id} is connected!`);

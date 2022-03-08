@@ -24,11 +24,9 @@ export default (socket: MyWebSocket): void => {
             log(`socket-method:${method}-parameter`).debug(parameter.toString());
 
             socket.attempt.methodVersion = version;
-            //加载所有中间件
-            middlewares[version](socket);
 
             //执行中间件：中间件函数必须return一个object才可以将结果添加到attempt中
-            for (const _middlewareFn of socket.middlewareMap) {
+            for (const _middlewareFn of Object.values(middlewares[version])) {
                 try {
                     const _result = await _middlewareFn(method, params, socket);
 

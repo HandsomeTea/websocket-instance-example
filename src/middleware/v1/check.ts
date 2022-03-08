@@ -3,7 +3,7 @@ import { tokenExpiration } from '@/lib';
 import { errorType, getENV } from '@/config';
 
 /** 登录请求限速，非登录请求的权限检查 */
-export default async (method: SocketMethod, _params: unknown, socket: MyWebSocket): Promise<undefined> => {
+export default async (method: SocketMethod, _params: unknown, socket: MyWebSocket): Promise<AnyKeys<SocketAttempt> | undefined> => {
     const countLimitMethod = new Set(['login']);
     const socketLimitInterval = getENV('SOCKET_LIMIT_INTERVAL') as number | undefined;
     const socketLimitMax = getENV('SOCKET_LIMIT_MAX') as number | undefined;

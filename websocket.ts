@@ -2,12 +2,8 @@ import WebSocket from 'ws';
 import http from 'http';
 
 
-type SocketMiddleware = (methodName: SocketMethod, methodParams: SocketRequestParameter, socket: MyWebSocket) => Promise<AnyKeys<SocketAttempt> | void>
-
 interface MyWebSocket extends WebSocket {
     attempt: SocketAttempt
-    middlewareMap: Array<SocketMiddleware>
-    use: (fn: SocketMiddleware) => MyWebSocket
     sendByConfig: (params: any) => void
 }
 
@@ -27,4 +23,4 @@ class WebSocketServer extends WebSocket.Server {
     }
 }
 
-export { WebSocketServer, MyWebSocket, SocketMiddleware };
+export { WebSocketServer, MyWebSocket };

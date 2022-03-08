@@ -27,7 +27,8 @@ module.exports = {
         SocketSession: true,
         SocketRequestParameter: true,
         SocketRequestVersion: true,
-        Device: true
+        Device: true,
+        AnyKeys: true
     },
     rules: {
         '@typescript-eslint/no-explicit-any': 2,
