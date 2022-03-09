@@ -1,9 +1,9 @@
-interface SocketSession {
-    id: string
+interface SessionModel {
+    _id: string
     hashedToken: string
     instanceId: string
+    userId: string
     status: 'online' | 'offline'
-    type: SessionType
     device: {
         OSVersion: string
         deviceType: DeviceType
@@ -11,13 +11,6 @@ interface SocketSession {
         serialNumber: string
         softVersion: string
     }
-    _createdAt: Date
-    _updatedAt: Date
-}
-
-interface SessionModel {
-    _id: string
-    connections: Array<SocketSession>
 }
 
 

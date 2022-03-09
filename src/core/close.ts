@@ -1,4 +1,4 @@
-import { sessionService } from '@/service';
+import { Sessions } from '@/model';
 import { log } from '@/config';
 import { MyWebSocket } from '../../websocket';
 
@@ -14,7 +14,7 @@ export default (socket: MyWebSocket): void => {
                 }
             }
 
-            sessionService.removeUserSession(userId, id);
+            Sessions.deleteUserSession(id);
         }
 
         if (device) {

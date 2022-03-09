@@ -8,19 +8,8 @@ class SessionService {
     }
 
     private init() {
-        /** 清空空的session记录 */
-        setInterval(() => Sessions.deleteEmptyData(), global.IntervalCleanEmptySession * 1000);
         /** 清空无效的session */
         setInterval(() => Sessions.deleteUnusedSession(), global.IntervalCleanUnusedSession * 1000);
-    }
-
-    async getSessionsByUserId(userId: string) {
-        const userSession = await Sessions.findById(userId);
-
-        if (userSession) {
-            return userSession.connections;
-        }
-        return [];
     }
 
     async updateSessionToken(userId: string, oldToken: { token?: string, hashedToken?: string }, newToken: { token?: string, hashedToken?: string }) {
@@ -45,10 +34,6 @@ class SessionService {
         const { userId, hashedToken, connectionId } = loginData;
 
         await Sessions.insertUserSession(userId, { hashedToken, connectionId }, device);
-    }
-
-    async removeUserSession(userId: string, connectionId: string) {
-        await Sessions.deleteUserSession(userId, connectionId);
     }
 }
 

@@ -24,7 +24,6 @@ module.exports = {
         SocketAttempt: true,
         InstanceModel: true,
         SessionModel: true,
-        SocketSession: true,
         SocketRequestParameter: true,
         SocketRequestVersion: true,
         Device: true,
