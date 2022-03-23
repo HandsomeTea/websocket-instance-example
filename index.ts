@@ -1,4 +1,25 @@
 import './startup';
+import { getENV, log, audit, updateOrCreateLogInstance } from '@/config';
+
+process.on('unhandledRejection', (reason, promise) => {
+    log('SYSTEM').fatal(reason);
+    audit('SYSTEM').fatal(reason);
+
+    if (promise) {
+        promise.catch(error => {
+            log('SYSTEM').error(error);
+            audit('SYSTEM').error(error);
+        }).then(data => {
+            log('SYSTEM').info(data);
+            audit('SYSTEM').info(data);
+        });
+    }
+});
+
+process.on('uncaughtException', (reason) => {
+    log('SYSTEM').fatal(reason);
+});
+
 import { createServer } from 'http';
 const server = createServer();
 
@@ -12,7 +33,6 @@ import { WebSocketServer } from './websocket';
 import socketCore from '@/core';
 import socketMethods from '@/method';
 import crypto from 'crypto';
-import { getENV, log, updateOrCreateLogInstance } from '@/config';
 
 global.WebsocketUserIdMap = {};
 global.WebsocketServer = new WebSocketServer({ server, maxPayload: 0 });
