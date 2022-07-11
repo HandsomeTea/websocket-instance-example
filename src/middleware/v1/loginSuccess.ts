@@ -4,5 +4,4 @@ export default async (method: SocketMethod/*, params: SocketRequestParameter, so
     }
 
     return {};
-    // do something
 };

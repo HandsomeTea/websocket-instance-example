@@ -227,7 +227,7 @@ export default new class WebsocketService {
                                 signal: reason || errorType.BE_LOGOUT
                             }]
                         }
-                    });
+                    }, 'logout-from-service');
 
                     setTimeout(() => {
                         if (client?.close) {
